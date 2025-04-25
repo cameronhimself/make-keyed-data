@@ -10,7 +10,7 @@ export type Thing = {
   name: string;
 };
 
-export const THINGS: Record<ThingKey, Thing> = {
+export const THINGS: Record<ThingID, Thing> = {
   foo: { id: "foo", name: "Foo" },
   bar: { id: "bar", name: "Bar" },
 }
@@ -26,8 +26,8 @@ export const THINGS = makeKeyedData<{
   bar: { name: "Bar" },
 });
 
-export type ThingID = keyof typeof THING_MAP;
-export type Thing = typeof THING_MAP[ThingKey];
+export type ThingID = keyof typeof THINGS;
+export type Thing = typeof THINGS[ThingID];
 ```
 
 It might not look like much, but it provides several benefits:
@@ -48,9 +48,9 @@ export type Thing = {
 };
 
 export const THINGS: Record<ThingID, Thing> = {
-  foo: { id: foo, name: "Foo" },
-  bar: { id: bar, name: "Bar" },
-}
+  foo: { id: "foo", name: "Foo" },
+  bar: { id: "bar", name: "Bar" },
+};
 ```
 
 And then I'd get annoyed that I had to repeat the IDs _three times_, so I'd change it to something like this:
@@ -115,8 +115,8 @@ export const THINGS = makeKeyedData<{
   bar: { name: "Bar" },
 });
 
-export type ThingID = keyof typeof THING_MAP;
-export type Thing = typeof THING_MAP[ThingKey];
+export type ThingID = keyof typeof THINGS;
+export type Thing = typeof THINGS[ThingID];
 ```
 
 # Examples
