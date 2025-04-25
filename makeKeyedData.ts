@@ -7,12 +7,12 @@ const makeKeyedData =
     options?: { idKey?: TIDKey }
   ): Record<TID, WithID<TObj, TID, TIDKey>> => {
     const idKey = (options?.idKey ?? 'id') as TIDKey;
-    return Object.fromEntries(
-      Object.entries(map).map(([key, value]) => [
-        key,
-        { ...(value as TObj), [idKey]: key },
-      ])
-    ) as WithID<TObj, TID, TIDKey>;
+
+    return Object.keys(map).reduce((acc, key) => {
+      const value = map[key as TID];
+      acc[key] = { ...(value as TObj), [idKey]: key };
+      return acc;
+    }, {} as Record<string, TObj & { [K in TIDKey]: TID }>) as WithID<TObj, TID, TIDKey>;
   };
 
 export default makeKeyedData;
