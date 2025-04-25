@@ -5,6 +5,7 @@
   "description": "A function for simplifying the creation of static data in code",
   "license": "ISC",
   "author": "",
+  "files": ["dist/*"],
   "main": "dist/makeKeyedData.js",
   "module": "dist/makeKeyedData.esm.js",
   "scripts": {
