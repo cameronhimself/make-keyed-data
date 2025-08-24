@@ -1,6 +1,6 @@
 {
   "name": "make-keyed-data",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "description": "A function for simplifying the creation of static data in code",
   "license": "ISC",
@@ -10,7 +10,8 @@
 	"types": "dist/makeKeyedData.d.ts",
   "exports": {
     "import": "./dist/makeKeyedData.esm.js",
-    "require": "./dist/makeKeyedData.js"
+    "require": "./dist/makeKeyedData.js",
+    "types": "./dist/makeKeyedData.d.ts"
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
