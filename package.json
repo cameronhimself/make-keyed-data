@@ -7,12 +7,14 @@
   "author": "",
   "files": ["dist/*"],
   "main": "dist/makeKeyedData.js",
+	"types": "dist/makeKeyedData.d.ts",
   "exports": {
     "import": "./dist/makeKeyedData.esm.js",
     "require": "./dist/makeKeyedData.js"
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
+    "prepack": "npm run build",
     "test": "jest --coverage"
   },
   "devDependencies": {
